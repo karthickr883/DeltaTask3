@@ -2,19 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/got"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context="com.example.karthik.delta3.MainActivity">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#66FF99"
-        app:tabGravity="fill"
-        app:tabMode="fixed" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,23 +19,23 @@
 
         <EditText
             android:id="@+id/search"
-            android:layout_width="321dp"
-            android:layout_height="wrap_content"
+            android:layout_width="283dp"
+            android:layout_height="39dp"
+            android:background="@drawable/my_capsule"
             android:ems="10"
             android:hint="Search character"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/colorAccent"
+
+            android:layout_weight="0.98" />
 
         <ImageButton
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="58dp"
+            android:layout_height="41dp" />
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

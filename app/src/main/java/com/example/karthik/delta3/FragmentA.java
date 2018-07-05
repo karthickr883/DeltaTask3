@@ -27,7 +27,7 @@ import static com.example.karthik.delta3.MainActivity.vname;
  * Created by karthik on 04-07-2018.
  */
 
-public class FragmentA extends Fragment {
+public class FragmentA extends android.app.Fragment {
     TextView name, house, gender, culture, books, dob;
     DatabaseHelper databaseHelper;
 
@@ -56,7 +56,7 @@ public class FragmentA extends Fragment {
                 name.setText(response.body().getData().getName());
                 house.setText(response.body().getData().getHouse());
                 dob.setText(String.valueOf(response.body().getData().getDateOfBirth()));
-                Log.d("Slug", response.body().getData().getImageLink());
+
                 if (response.body().getData().getCulture() == null)
                     culture.setText("Not available");
                 else

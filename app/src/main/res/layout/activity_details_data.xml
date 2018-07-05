@@ -19,7 +19,7 @@
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
 
-        android:background="@drawable/my_shape_white"
+        android:background="@drawable/my_shape_black"
         android:orientation="vertical"
         android:layout_weight="0.81">
 
@@ -32,10 +32,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
+                android:textColor="#F4F4F4"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/charName"
+                android:textColor="#F4F4F4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
@@ -53,6 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DOB"
+                android:textColor="#F4F4F4"
                 android:textSize="20sp" />
 
             <TextView
@@ -61,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="112dp"
                 android:text="Charcter dob"
+                android:textColor="#F4F4F4"
                 android:textSize="15sp"
                 android:textStyle="italic" />
         </LinearLayout>
@@ -72,6 +76,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:textColor="#F4F4F4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -79,6 +84,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:textColor="#F4F4F4"
                 android:id="@+id/charGender"
                 android:layout_width="wrap_content"
 
@@ -88,18 +94,21 @@
                 android:textSize="15sp"
                 android:textStyle="italic" />
         </LinearLayout>
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="167dp"
-    android:background="@drawable/got1"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="167dp"
+
+            android:background="@drawable/got2"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#F4F4F4"
                 android:layout_height="wrap_content"
                 android:text="House"
                 android:textSize="20sp" />
@@ -107,7 +116,7 @@
             <TextView
                 android:id="@+id/charHouse"
                 android:layout_width="wrap_content"
-
+                android:textColor="#F4F4F4"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="95dp"
                 android:text="Character House"
@@ -125,13 +134,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Culture"
-
+                android:textColor="#F4F4F4"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/charCulture"
                 android:layout_width="wrap_content"
-
+                android:textColor="#F4F4F4"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="89dp"
                 android:text="Character Culture"
@@ -149,12 +158,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="List of books"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textColor="#F4F4F4"/>
 
             <TextView
                 android:id="@+id/charBooks"
                 android:layout_width="wrap_content"
-
+                android:textColor="#F4F4F4"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:text="List Books"

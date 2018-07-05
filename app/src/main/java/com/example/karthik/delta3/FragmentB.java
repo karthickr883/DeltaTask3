@@ -30,10 +30,10 @@ public class FragmentB extends Fragment {
         databaseHelper = new DatabaseHelper(getActivity());
         list = (ListView) view.findViewById(R.id.storedName);
         Cursor data = databaseHelper.getAllData();
-
+        sname.clear();
         while (data.moveToNext()) {
             sname.add(data.getString(1));
-
+            Log.d("LOGGING", data.getString(1));
         }
 
         ArrayAdapter<String> sadapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, sname);
