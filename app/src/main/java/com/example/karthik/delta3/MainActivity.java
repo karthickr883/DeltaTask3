@@ -2,6 +2,7 @@ package com.example.karthik.delta3;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,6 +29,7 @@ import com.example.karthik.delta3.CharcterByName.CharacterResponse;
 import com.example.karthik.delta3.CharcterByName.Data;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,14 +40,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static EditText searchText;
+    public static AutoCompleteTextView searchText;
     ImageButton button;
-    ViewPager viewPager;
-    private TabLayout tabLayout;
     public static String vname;
     ImageView imageView;
     String BASE_URL = "https://api.got.show/api";
-    int flag;
+    DatabaseHelper databaseHelper;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -70,9 +72,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        databaseHelper = new DatabaseHelper(this);
+        Cursor data = databaseHelper.getAllData();
+        ArrayList<String> suggestion = new ArrayList<>();
+        while (data.moveToNext())
+            suggestion.add(data.getString(1));
+        ArrayAdapter<String> suggest_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, suggestion);
+        searchText = (AutoCompleteTextView) findViewById(R.id.search);
 
-        searchText = (EditText) findViewById(R.id.search);
-
+        searchText.setAdapter(suggest_adapter);
         //   tabLayout = (TabLayout) findViewById(R.id.tabs);
         button = (ImageButton) findViewById(R.id.button);
 
