@@ -36,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText searchText;
+    public static EditText searchText;
     ImageButton button;
     ViewPager viewPager;
     private TabLayout tabLayout;
@@ -73,20 +73,20 @@ public class MainActivity extends AppCompatActivity {
 
         searchText = (EditText) findViewById(R.id.search);
 
-     //   tabLayout = (TabLayout) findViewById(R.id.tabs);
+        //   tabLayout = (TabLayout) findViewById(R.id.tabs);
         button = (ImageButton) findViewById(R.id.button);
 
-      //  final pageAdapter adapter = new pageAdapter(getSupportFragmentManager());
+        //  final pageAdapter adapter = new pageAdapter(getSupportFragmentManager());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 vname = searchText.getText().toString();
-               FragmentA fragment = new FragmentA();
+                FragmentA fragment = new FragmentA();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-             transaction.replace(R.id.myLayout,fragment,"Details");
+                searchText.clearFocus();
+                transaction.replace(R.id.myLayout, fragment, "Details");
                 transaction.commit();
-              //  viewPager.setAdapter(adapter);
+                //  viewPager.setAdapter(adapter);
                 //tabLayout.setupWithViewPager(viewPager);
 
 

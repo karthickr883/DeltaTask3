@@ -37,6 +37,7 @@ public class DetailsData extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
         Cursor data = databaseHelper.getData(gname);
         Log.d("DATA", String.valueOf(data.getCount()));
+        String value = "no";
         while (data.moveToNext()) {
 
             name.setText(data.getString(1));
@@ -45,9 +46,10 @@ public class DetailsData extends AppCompatActivity {
             gender.setText(data.getString(3));
             culture.setText(data.getString(5));
             books.setText(data.getString(6));
-            if (data.getString(7) == "No") {
+            if (data.getString(7).trim().equalsIgnoreCase(value.trim())) {
                 image.setImageResource(R.drawable.no_image);
             } else {
+                Log.d("CHecking Link", data.getString(7));
                 Picasso.with(this).load(data.getString(7)).into(image);
             }
         }
