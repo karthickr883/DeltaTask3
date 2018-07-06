@@ -10,10 +10,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class DetailsData extends AppCompatActivity {
     DatabaseHelper databaseHelper;
+    ImageView image;
     TextView name, house, gender, culture, books, dob;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -22,23 +26,30 @@ public class DetailsData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_data);
         Bundle bundle = getIntent().getExtras();
+        image = (ImageView) findViewById(R.id.imageView2);
+        name = (TextView) findViewById(R.id.charName);
+        house = (TextView) findViewById(R.id.charHouse);
+        gender = (TextView) findViewById(R.id.charGender);
+        culture = (TextView) findViewById(R.id.charCulture);
+        books = (TextView) findViewById(R.id.charBooks);
+        dob = (TextView) findViewById(R.id.charDob);
         String gname = bundle.getString("CharName");
         databaseHelper = new DatabaseHelper(this);
         Cursor data = databaseHelper.getData(gname);
         Log.d("DATA", String.valueOf(data.getCount()));
         while (data.moveToNext()) {
-            name = (TextView) findViewById(R.id.charName);
-            house = (TextView) findViewById(R.id.charHouse);
-            gender = (TextView) findViewById(R.id.charGender);
-            culture = (TextView) findViewById(R.id.charCulture);
-            books = (TextView) findViewById(R.id.charBooks);
-            dob = (TextView) findViewById(R.id.charDob);
+
             name.setText(data.getString(1));
-            dob.setText(String.valueOf(data.getInt(2)));
+            dob.setText(data.getString(2));
             house.setText(data.getString(4));
             gender.setText(data.getString(3));
             culture.setText(data.getString(5));
             books.setText(data.getString(6));
+            if (data.getString(7) == "No") {
+                image.setImageResource(R.drawable.no_image);
+            } else {
+                Picasso.with(this).load(data.getString(7)).into(image);
+            }
         }
     }
 
@@ -57,7 +68,7 @@ public class DetailsData extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (id == R.id.list_menu) {
-            Intent intent = new Intent(DetailsData.this, MainActivity.class);
+            Intent intent = new Intent(DetailsData.this, History.class);
             startActivity(intent);
             return true;
 

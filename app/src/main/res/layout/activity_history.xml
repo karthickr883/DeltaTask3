@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/got3"
+
     tools:context="com.example.karthik.delta3.History">
     <ListView
         android:layout_width="match_parent"

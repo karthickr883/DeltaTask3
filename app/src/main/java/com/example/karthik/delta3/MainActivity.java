@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 vname = searchText.getText().toString();
                FragmentA fragment = new FragmentA();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
-             transaction.add(R.id.mainLayout,fragment,"Details");
+
+             transaction.replace(R.id.myLayout,fragment,"Details");
                 transaction.commit();
               //  viewPager.setAdapter(adapter);
                 //tabLayout.setupWithViewPager(viewPager);

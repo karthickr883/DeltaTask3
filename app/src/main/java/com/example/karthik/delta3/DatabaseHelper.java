@@ -23,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String Col5 = "House";
     private static final String Col6 = "Culture";
     private static final String Col7 = "Books";
+    private static final String Col8 = "Link";
 
 
     public DatabaseHelper(Context context) {
@@ -33,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + table_name + "( " + Col1 + " INTEGER PRIMARY KEY AUTOINCREMENT ," + Col2 + " VARCHAR(255) ," + Col3 + " INTEGER ," + Col4 + " VARCHAR(255)," + Col5 + " VARCHAR(255)," + Col6 + " VARCHAR(255)," + Col7 + " VARCHAR(255));");
+        db.execSQL("CREATE TABLE " + table_name + "( " + Col1 + " INTEGER PRIMARY KEY AUTOINCREMENT ," + Col2 + " VARCHAR(255) ," + Col3 + " VARCHAR(255) ," + Col4 + " VARCHAR(255)," + Col5 + " VARCHAR(255)," + Col6 + " VARCHAR(255)," + Col7 + " VARCHAR(255),"+ Col8 +" VARCHAR(255));");
     }
 
     @Override
@@ -41,18 +42,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addData(String name, int dob, String gender, String house, String culture, String books) {
+    public void addData(String name, String dob, String gender, String house, String culture, String books,String link) {
         SQLiteDatabase db = this.getWritableDatabase();
         Log.d("Inside database",house);
         ContentValues contentValues = new ContentValues();
-        if (culture == null)
-            culture = "Not available";
         contentValues.put(Col2, name);
         contentValues.put(Col3, dob);
         contentValues.put(Col4, gender);
         contentValues.put(Col5, house);
         contentValues.put(Col6, culture);
         contentValues.put(Col7, books);
+        contentValues.put(Col8,link);
         db.insert(table_name, null, contentValues);
     }
 
