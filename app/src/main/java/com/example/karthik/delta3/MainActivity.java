@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentA fragment = new FragmentA();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 searchText.clearFocus();
+                searchText.setText("");
                 transaction.replace(R.id.myLayout, fragment, "Details");
                 transaction.commit();
                 //  viewPager.setAdapter(adapter);

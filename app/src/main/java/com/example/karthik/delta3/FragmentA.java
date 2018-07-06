@@ -117,7 +117,7 @@ public class FragmentA extends android.app.Fragment {
                         link = URL + response.body().getData().getImageLink();
                     Log.d("IMAGE", link);
                     if (link != "no")
-                        Picasso.with(getActivity()).load(link).into(imageView);
+                        Picasso.with(getActivity()).load(link).placeholder(R.drawable.loading).into(imageView);
                     else
                         imageView.setImageResource(R.drawable.no_image);
                     if (databaseHelper.getData(temp_name).getCount() == 0) {
